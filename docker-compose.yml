@@ -1,0 +1,72 @@
+version: '3'
+
+services:
+
+  #PostgreSQL Database for the application
+  creditsystem_db:
+    image: "postgres:9.6-alpine"
+    container_name: creditsystem_db
+    #Volume mounted for database for the storage
+    volumes:
+      - creditsystem-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" # Forward the exposed port 5432 on the container to port 5432 on the host machine
+
+    #Environment variable for DB name, user and password
+    environment:
+      - POSTGRES_DB=creditsystem
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+
+
+  #Back-end Spring Boot Application
+  creditsystem_backend_customer:
+    #The docker file in creditsystem-app build the jar and provides the docker image with the following name.
+    build: ./creditsystem-server-customer
+    container_name: creditsystem_backend_customer
+
+    #Environment variables for Spring Boot Application.
+    environment:
+      - DB_SERVER=creditsystem_db
+      - POSTGRES_DB=creditsystem
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "8081:8081" # Forward the exposed port 8081 on the container to port 8081 on the host machine
+    links:
+      - creditsystem_db
+
+    #Back-end Spring Boot Application
+  creditsystem_backend_creditprovider:
+      #The docker file in creditsystem-app build the jar and provides the docker image with the following name.
+      build: ./creditsystem-server-creditprovider
+      container_name: creditsystem_backend_creditprovider
+
+      #Environment variables for Spring Boot Application.
+      environment:
+        - DB_SERVER=creditsystem_db
+        - POSTGRES_DB=creditsystem
+        - POSTGRES_USER=user
+        - POSTGRES_PASSWORD=password
+      ports:
+        - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+      links:
+        - creditsystem_db
+
+  frontend:
+      image: creditsystem_frontend
+      build:
+         context: ./creditsystem-ui
+         dockerfile: Dockerfile
+      volumes:
+        - './:/app'
+        - '/app/node_modules'
+      depends_on:
+        - creditsystem_backend_creditprovider
+        - creditsystem_backend_customer
+      ports:
+        - '3000:3000'
+      command: npm start
+#Volumes for DB data
+volumes:
+  creditsystem-data:

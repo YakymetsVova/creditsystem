@@ -1,0 +1,126 @@
+.wrapper {
+    --bs-gutter-x: 1.5rem;
+    margin-right: calc(var(--bs-gutter-x) * -.5);
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.header-style {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+thead {
+    background-color: #f5f7f8;
+}
+
+.wrapper > table.table > thead > tr > th.header-cols,
+.wrapper > table.table > thead > tr > th.delete-col {
+    border-bottom: 1px solid #eceff1;
+    border-top: 2px solid #e1e7e9;
+}
+
+.delete-col {
+    width: 5%;
+}
+
+.header-cols:first-child {
+    padding-left: 35px;
+}
+
+.header-cols:last-child {
+    padding-right: 35px;
+}
+
+.table-cols:first-child {
+    padding-left: 35px;
+}
+
+.table-cols:last-child {
+    padding-right: 35px;
+}
+
+table tbody tr:hover {
+    background-color: #f5f7f8;
+}
+
+.delete-btn {
+    opacity: 0;
+}
+
+
+tbody tr:hover .delete-btn {
+    opacity: 1;
+}
+
+.status {
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    vertical-align: middle;
+    width: 80px;
+    height: 30px;
+    background-color: #e1e7e9;
+    border-radius: 5px;
+}
+
+.naviBtn {
+    font-size: larger;
+    color: #4B0082
+}
+
+div > .modal-backdrop.show {
+    opacity: 0.5;
+}
+
+.link-wrapper-style {
+    text-align: center;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 13pt;
+    margin-bottom: -2px;
+}
+
+.link-style, .link-style:hover {
+    text-decoration: none;
+    color: #546e7a;
+}
+
+
+.link-highlight {
+    border-bottom: 3px #263238 solid;
+}
+
+.link-wrapper-style :first-child {
+    padding-right: 20px;
+}
+
+.count-style {
+    display: inline-block;
+    padding: 0 16px 0 16px;
+    border-radius: 5px;
+}
+
+.count-style-active {
+    background-color: #546e7a;
+    color: #eceff1;
+}
+
+.count-style-inactive {
+    background-color: #eceff1;
+    color: #546e7a;
+}
+
+.status-style-active {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+}
+
+.status-style-inactive {
+    font-family: 'Montserrat', sans-serif;
+    color: #546e7a;
+}

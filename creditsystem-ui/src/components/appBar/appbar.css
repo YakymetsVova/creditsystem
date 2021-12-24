@@ -1,0 +1,19 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 80px;
+    background-color: white;
+    align-items: center;
+    border-bottom: 2px solid #e1e7e9;
+}
+
+.headerLogo{
+    height: 48px;
+    width: auto;
+    margin-left: 100px;
+}
+
+.headerAccount{
+    margin-right: 60px;
+}

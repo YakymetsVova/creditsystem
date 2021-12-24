@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="creditsystem-server-customer" />
+        <module name="creditsystem (1)" />
+        <module name="creditsystem (2)" />
+        <module name="creditsystem-server-creditprovider" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="creditsystem (1)" target="8" />
+      <module name="creditsystem (2)" target="8" />
+      <module name="creditsystem-server" target="8" />
+      <module name="creditsystem-server-creditprovider" target="8" />
+      <module name="creditsystem-server-customer" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="creditsystem (1)" options="-parameters" />
+      <module name="creditsystem (2)" options="-parameters" />
+      <module name="creditsystem-server" options="-parameters" />
+      <module name="creditsystem-server-creditprovider" options="-parameters" />
+      <module name="creditsystem-server-customer" options="-parameters" />
+    </option>
+  </component>
+</project>
